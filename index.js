@@ -8,7 +8,7 @@ const { logoutLogic } = require('./controllers/authenticate');
 const {patientRouter} = require('./routes/patientroute');
 const { doctorRouter } = require('./routes/doctorsroute');
 require('dotenv').config();
-// const app = express();
+const app = express();
 // const http = require("http");
 // const {Server} = require("socket.io");
 // const { scanRouter } = require('./routes/scanroute');
