@@ -9,14 +9,6 @@ const {patientRouter} = require('./routes/patientroute');
 const { doctorRouter } = require('./routes/doctorsroute');
 require('dotenv').config();
 const app = express();
-const http = require("http");
-const {Server} = require("socket.io");
-const { scanRouter } = require('./routes/scanroute');
-const { payRouter } = require('./routes/paymentroute');
-const httpServer = http.createServer(app);
-
-const io = new Server(httpServer);
-
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -25,8 +17,6 @@ app.use('/patient', patientRouter);
 app.use('/doctor', doctorRouter);
 app.use("/appointment",appointmentRouter);
 app.post('/logout', logoutLogic);
-app.use('/scan',scanRouter);
-app.use('/pay',payRouter);
 
 app.get('*', (req, res)=>{
     res.send('<h1>Page Not Found</h1>')
